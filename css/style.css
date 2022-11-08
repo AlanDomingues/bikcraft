@@ -28,6 +28,7 @@ a {
 }
 .header-menu {
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
 }
 .header-menu a {
@@ -37,7 +38,20 @@ a {
   font-size: 18px;
   position: relative;
 }
+.header-menu a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0px;
+  background: #ffffff;
+  margin-top: 4px;
+  transition: 0.3s;
+  position: absolute;
+}
 
+.header-menu a:hover:after {
+  width: 100%;
+}
 @media (max-widht: 800px) {
   .header-menu {
     gap: 20px;
@@ -48,7 +62,19 @@ a {
     border-radius: 4px;
     position: relative;
   }
+  .header a::hover {
+    background: #2e2e2e;
+  }
   .header a::after {
     display: none;
+  }
+}
+@media (max-width: 600px) {
+  .header-menu {
+    gap: 12px;
+  }
+  .header-menu a {
+    padding: 8px 12px;
+    font-size: 14px;
   }
 }
